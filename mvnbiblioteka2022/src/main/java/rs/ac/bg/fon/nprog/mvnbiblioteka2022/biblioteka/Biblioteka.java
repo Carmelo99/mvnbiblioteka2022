@@ -16,7 +16,8 @@ public class Biblioteka implements BibliotekaInterfejs {
 	 * Lista sa svim knjigama u biblioteci. Inicijalozovana kao LinkedList
 	 */
 	private List<Knjiga> knjige = new LinkedList<Knjiga>();
-
+	
+	@Override
 	public void dodajKnjigu(Knjiga knjiga) {
 		if (knjiga == null)
 			throw new NullPointerException("Knjiga ne sme biti null");
@@ -27,6 +28,7 @@ public class Biblioteka implements BibliotekaInterfejs {
 		knjige.add(knjiga);
 	}
 
+	@Override
 	public void obrisiKnjigu(Knjiga knjiga) {
 		if (knjiga == null)
 			throw new NullPointerException("Knjiga ne sme biti null");
@@ -34,10 +36,12 @@ public class Biblioteka implements BibliotekaInterfejs {
 		knjige.remove(knjiga);
 	}
 
+	@Override
 	public List<Knjiga> vratiSveKnjige() {
 		return knjige;
 	}
 
+	@Override
 	public List<Knjiga> pronadjiKnjigu(Autor autor, long isbn, String naslov, String izdavac) {
 		if (autor == null && isbn <= 0 && naslov == null && izdavac == null)
 			throw new IllegalArgumentException("Morate uneti bar jedan kriterijum");
@@ -79,5 +83,7 @@ public class Biblioteka implements BibliotekaInterfejs {
 		
 		return rezultat;
 	}
+
+	
 
 }
